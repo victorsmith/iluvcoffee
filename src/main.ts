@@ -8,8 +8,13 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
+      transform: true,
     }),
   );
   await app.listen(3000);
 }
 bootstrap();
+
+/*
+  Transform => turns json into instance of associated DTO class
+*/
