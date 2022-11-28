@@ -19,10 +19,16 @@ export class Coffee {
   @Column()
   brand: string;
 
+  @Column({ nullable: true })
+  description: string;
+
+  @Column({ default: 0 })
+  reccomendations: number;
+
   // @Column('json', { nullable: true })
   @JoinTable()
   @ManyToMany((type) => Flavour, (flavour) => flavour.coffees, {
-    cascade: true, // ['insert flavours which dont exist in "Flavours" table']
+    cascade: true, // Insert flavours which dont already exist into "Flavours" table
   })
   flavours: Flavour[];
 }

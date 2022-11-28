@@ -9,6 +9,9 @@ async function bootstrap() {
       whitelist: true,
       forbidNonWhitelisted: true,
       transform: true,
+      transformOptions: {
+        enableImplicitConversion: true, // no longer have to explicitly specify types with @Type()
+      },
     }),
   );
   await app.listen(3000);
